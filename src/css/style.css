@@ -1,0 +1,98 @@
+@import "bulma";
+
+canvas {
+  border: 1px solid grey;
+  margin: 0 0px;
+  height: 800px;
+}
+
+.range-container {
+  display: flex;
+  align-items: center;
+}
+
+input[type="range"] {
+  box-sizing: border-box;
+  font-size: 0.6em; /*SMALL*/
+  line-height: 1;
+  height: 1.75em;
+  background-color: transparent;
+  cursor: pointer;
+  -webkit-appearance: none;
+  width: 100%;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+input[type="range"]:focus {
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 2em;
+  height: 2em;
+  margin-top: 0;
+  background-color: #16a085;
+  border-radius: 1em;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+}
+input[type="range"]::-moz-range-thumb {
+  width: 2em;
+  height: 2em;
+  margin-top: 0;
+  background-color: #16a085;
+  border-radius: 1em;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+}
+
+input[type="range"]:hover::-webkit-slider-thumb {
+  border-color: rgba(255, 255, 255, 0.7);
+}
+input[type="range"]:hover::-moz-range-thumb {
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+input[type="range"]:active::-webkit-slider-thumb {
+  border-color: #ffffff;
+}
+input[type="range"]:active::-moz-range-thumb {
+  border-color: #ffffff;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  cursor: pointer;
+  height: 1em;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+  background-color: transparent;
+}
+input[type="range"]::-moz-range-track {
+  width: 100%;
+  cursor: pointer;
+  height: 1em;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+  background-color: transparent;
+}
+
+.icon {
+  opacity: 0.25;
+  cursor: not-allowed;
+}
+
+.icon.active {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.bd-color {
+  border-radius: 2px;
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.1), inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  /* float: left; */
+  height: 24px;
+  margin-right: 8px;
+  width: 24px;
+}

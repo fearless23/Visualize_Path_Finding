@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Visualize Path Finding</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
+    ></script>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/imgs/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/imgs/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/imgs/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/site.webmanifest" />
+    <!-- Manifest and Icons https://favicon.io/favicon-generator/ -->
+  </head>
+  <body>
+    <nav class="navbar is-info" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a
+          class="navbar-item is-medium"
+          href="https://visualizepathfinding.netlify.com/"
+        >
+          Visualize Sorting
+        </a>
+
+        <a class="navbar-item is-small" href="./about.html"> About </a>
+
+        <a
+          id="menuBtn"
+          role="button"
+          class="navbar-burger burger"
+          aria-label="menu"
+          aria-expanded="false"
+          data-target="navbarBasicExample"
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-end">
+          <!-- SPEED -->
+          <div class="navbar-item">
+            <div class="range-container">
+              <div style="margin-right: 6px;">Speed:</div>
+              <input type="range" name="speed" id="speed" min="1" max="100" />
+            </div>
+          </div>
+
+          <!-- SELECT SORTING METHOD -->
+          <div class="navbar-item">
+            <div class="field">
+              <div class="control">
+                <div class="select is-small is-rounded is-primary">
+                  <select name="" id="selectm">
+                    <option value="1">Bubble Sort - O(n&sup2;)</option>
+                    <option value="2">Selection Sort - O(n&sup2;)</option>
+                    <option value="3">Insertion Sort - O(n&sup2;)</option>
+                    <option value="4">Merge Sort - O(n*logn)</option>
+                    <option value="4">Quick Sort - O(n&sup2;)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- PAUSE, RESUME, STOP ICONS -->
+          <div class="navbar-item">
+            <span class="icon" id="pause" title="Pause">
+              <i class="fas fa-pause"></i>
+            </span>
+            <span class="icon" id="resume" title="Resume">
+              <i class="fas fa-play"></i>
+            </span>
+            <span class="icon has-text-danger" id="stop" title="Stop">
+              <i class="fas fa-stop"></i>
+            </span>
+          </div>
+          <!-- BUTTON -->
+          <div class="navbar-item">
+            <button id="start" class="button is-small">RUN</button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <canvas id="canvas"></canvas>
+    <footer class="footer has-background-grey-lighter	">
+      <div class="content has-text-centered">
+        <p>
+          <strong>Visualize Path Finding</strong> by
+          <a href="https://github.com/fearless23">Jaspreet Singh</a>.
+        </p>
+      </div>
+    </footer>
+    <script src="./components/index.ts"></script>
+  </body>
+</html>

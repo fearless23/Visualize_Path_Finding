@@ -1,0 +1,40 @@
+{
+  "name": "visualize-path-finding",
+  "version": "1.0.0",
+  "engines": {
+    "node": "12.x"
+  },
+  "description": "Javascript Canvas Visualize different Path Finding Methods",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rm -r dist",
+    "start": "parcel src/index.html --open",
+    "parcel-build": "parcel build src/index.html --no-source-maps",
+    "build": "npm run clean && npm run parcel-build",
+    "build:github": "npm run parcel-build",
+    "run:build": "http-server dist -o"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fearless23/Visualize_Path_Finding.git"
+  },
+  "keywords": [
+    "Canvas",
+    "HTML",
+    "Javascript",
+    "Sorting"
+  ],
+  "author": "Jaspreet Singh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fearless23/Visualize_Path_Finding/issues"
+  },
+  "homepage": "https://github.com/fearless23/Visualize_Path_Finding#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4",
+    "typescript": "^3.7.4"
+  },
+  "dependencies": {
+    "bulma": "^0.8.0"
+  }
+}
