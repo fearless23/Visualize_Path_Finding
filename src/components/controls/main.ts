@@ -5,8 +5,9 @@ import { setState, isState, prevOpts } from "./helpers";
 
 const checkIfFinished = (intvId: number) => {
   if (isState("done") || isState("stop")) {
-    clearInterval(intvId);
     setState("ready");
+    clearInterval(intvId);
+    // MAin dont runs second time...
     initState(...prevOpts());
     INIT.HTMLElements.startEl.addEventListener("click", startBtnHandler);
   }
@@ -15,12 +16,14 @@ const checkIfFinished = (intvId: number) => {
 const startBtnHandler = (evt: MouseEvent) => {
   changeState();
   const methodIdx = globalThis.myData.methodIdx;
-  // const delay = globalThis.myData.opts.delay;
   selectMethod[methodIdx]();
   const intvId = setInterval(() => checkIfFinished(intvId), 500);
 };
 
 export const main = () => {
+  //Main runs once...
+  // Create GRID...
+  INIT.clearCanvas();
   initState();
   INIT.HTMLElements.startEl.addEventListener("click", startBtnHandler);
 };

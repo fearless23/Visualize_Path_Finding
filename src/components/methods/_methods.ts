@@ -1,8 +1,8 @@
 import { sampleSearch } from "./0.sampleSearch";
-import { aStarSearch } from "./1.AStarSearch";
+import { aStarPathFind } from "./aStar/main";
 
 
 export const selectMethod = {
   0: sampleSearch,
-  1: aStarSearch
+  1: aStarPathFind
 };

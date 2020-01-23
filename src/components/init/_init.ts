@@ -3,8 +3,8 @@ import { cellColor } from "./constants";
 import HTMLElements from "./elements";
 import { handleMenuBtn } from "./initMenuBtn";
 import {
+  canvas,
   clearCanvas,
-  drawGrid,
   drawRect,
   drawLine,
   startLine
@@ -13,10 +13,10 @@ import { createTimer, pushTimer, runTimerOp } from "./timers";
 
 export default {
   cellColor,
+  canvas,
   HTMLElements,
   handleMenuBtn,
   clearCanvas,
-  drawGrid,
   drawRect,
   drawLine,
   startLine,

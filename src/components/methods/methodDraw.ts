@@ -15,8 +15,25 @@ export const colorSquare = function(
   col: number,
   type: Cell = "unvisited"
 ) {
-  const fillStyle = cellColor(type);
-  const cb = () => drawRect(row * 32, col * 32, fillStyle);
+  const cb = () => drawRect(row * 32, col * 32, cellColor(type));
+  pushTimer(cb, waitFor);
+};
+
+const color = (val: number) => {
+  if (val === 0) return "wall";
+  if (val === 1) return null;
+};
+
+export const colorGrid = function(waitFor: number, data: number[][]) {
+  const cb = () => {
+    for (let row = 0; row < data.length; ++row) {
+      for (let col = 0; col < data[row].length; ++col) {
+        if (data[row][col] !== 1) {
+          drawRect(row * 32, col * 32, "wall");
+        }
+      }
+    }
+  };
   pushTimer(cb, waitFor);
 };
 
@@ -25,7 +42,7 @@ export const makeLine = function(waitFor: number, row: number, col: number) {
   pushTimer(cb, waitFor);
 };
 
-export const done = function(waitFor, name: string) {
+export const done = function(waitFor: number, name: string) {
   const cb = () => {
     globalThis.myData.state = "done";
     console.log("FINISHED", name);

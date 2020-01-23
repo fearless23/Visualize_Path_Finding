@@ -1,5 +1,5 @@
 import INIT from "./init/_init";
-const { handleMenuBtn, drawGrid } = INIT;
+const { handleMenuBtn } = INIT;
 import { main } from "./controls/main";
 
 document.addEventListener("DOMContentLoaded", () => {

@@ -4,7 +4,8 @@ export type Cell =
   | "target"
   | "visited"
   | "unvisited"
-  | "boundary";
+  | "boundary"
+  | "white";
 
 export type Opts = {
   // size: number;

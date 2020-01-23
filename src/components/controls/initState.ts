@@ -1,5 +1,12 @@
 import INIT from "../init/_init";
-import { setState, isState, WAITFOR, METHODIDX } from "./helpers";
+import {
+  setState,
+  isState,
+  WAITFOR,
+  METHODIDX,
+  prepareGrid,
+  mouseInCanvas
+} from "./helpers";
 const {
   startEl,
   stopEl,
@@ -8,6 +15,8 @@ const {
   methodEl,
   speedEl
 } = INIT.HTMLElements;
+
+const { canvas } = INIT;
 
 export const initState = (
   prevWaitFor: number = WAITFOR,
@@ -44,6 +53,24 @@ export const initState = (
     if (isState("ready")) globalThis.myData.methodIdx = methodEl.selectedIndex;
   });
 
+  prepareGrid();
+  let prevCleared = false;
+
+  canvas.addEventListener("mousemove", (e: MouseEvent) => {
+    if (!prevCleared) {
+      INIT.clearCanvas();
+      prevCleared = true;
+    }
+    mouseInCanvas(e);
+  });
+  canvas.addEventListener("click", (e: MouseEvent) => {
+    if (!prevCleared) {
+      INIT.clearCanvas();
+      prevCleared = true;
+    }
+    mouseInCanvas(e);
+  });
+
   // Now Our Start Button or RUN Button is ready
   startEl.innerText = "RUN";
   startEl.disabled = false;
@@ -52,7 +79,6 @@ export const initState = (
 export const changeState = () => {
   // When we click Start Button...
   INIT.clearCanvas();
-  INIT.drawGrid();
   // After Run Button Clicked...
   globalThis.myData.state = "busy";
   // START BTN DISABLED
@@ -64,6 +90,8 @@ export const changeState = () => {
   methodEl.disabled = true;
   speedEl.removeEventListener("change", _ => null);
   speedEl.disabled = true;
+  canvas.removeEventListener("click", _ => null);
+  canvas.removeEventListener("mousemove", _ => null);
 
   // stop and pause are active, resume is inactive...
   stopEl.classList.add("active");
